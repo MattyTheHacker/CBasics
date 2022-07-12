@@ -2,9 +2,10 @@
 #include <time.h>
 #include <windows.h>
 
-int get_current_time() {
+int get_current_time()
+{
     time_t t, val = 1;
-    struct tm* current_time;
+    struct tm *current_time;
 
     t = time(NULL);
     current_time = localtime(&t);
