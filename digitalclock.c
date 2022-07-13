@@ -43,36 +43,26 @@ int convert_12_to_24(char *str){
     // char ssc[2] = {s1, s2};
     // int ssi = atoi(strcat(s1, s2));
 
-    printf("h1h2 m1m2 s1s2: %c%c %c%c %c%c\n", h1, h2, m1, m2, s1, s2);
-    printf("hhc mmc ssc: %c %c %c\n", hhh, mmm, sss);
-    printf("hhi mmi ssi: %d %d %d\n", hhi, mmi, ssi);
-
-    char hours[3];
-    char minutes[3];
-    char seconds[3];
     bool isPM;
 
-
-    for (int i = 0; i < 10; i++) {
-        printf("character: %c, index: %d\n", str[i], i);
-        if (i == 0 | i == 1){
-            hours[i] = str[i];
-        } else if (i == 3 | i == 4){
-            minutes[i - 3] = str[i];
-        } else if (i == 6 | i == 7){
-            seconds[i - 6] = str[i];
-        } else if (i == 8){
-            if (str[i] == 'A'){
-                isPM = false;
-            } else if (str[i] == 'P'){
-                isPM = true;
-            }
-        }
+    if (str[8] == 'A') {
+        isPM = false;
+    } else if (str[8] == 'P') {
+        isPM = true;
+    } else {
+        printf("Invalid time format\n");
+        return -1;
     }
 
-    printf("Hours: %s\n", hours);
-    printf("Minutes: %s\n", minutes);
-    printf("Seconds: %s\n", seconds);
+    printf("h1h2 m1m2 s1s2: %c%c %c%c %c%c\n", h1, h2, m1, m2, s1, s2);
+    // printf("hhc mmc ssc: %c %c %c\n", hhh, mmm, sss);
+    printf("hhi mmi ssi: %d %d %d\n", hhi, mmi, ssi);
+
+    printf("hours: %d\n", hhi);
+    printf("minutes: %d\n", mmi);
+    printf("seconds: %d\n", ssi);
+    printf("isPM: %d\n", isPM);
+
 
     // if (str[8] == 'A'){
     //     if (hh == 12){
