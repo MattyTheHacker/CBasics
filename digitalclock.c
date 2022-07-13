@@ -24,24 +24,18 @@ int convert_12_to_24(char *str){
     
     char h1 = str[0];
     char h2 = str[1];
-    // char hhc[2] = {h1, h2};
     char hhh[3] = {h1, h2, '\0'};
-    // strcat(hhh, strcat(h1, h2));
     int hhi = atoi(hhh);
 
     char m1 = str[3];
     char m2 = str[4];
     char mmm[3] = {m1, m2, '\0'};
     int mmi = atoi(mmm);
-    // char mmc[2] = {m1, m2};
-    // int mmi = atoi(strcat(m1, m2));
 
     char s1 = str[6];
     char s2 = str[7];
     char sss[3] = {s1, s2, '\0'};
     int ssi = atoi(sss);
-    // char ssc[2] = {s1, s2};
-    // int ssi = atoi(strcat(s1, s2));
 
     bool isPM;
 
@@ -55,7 +49,6 @@ int convert_12_to_24(char *str){
     }
 
     printf("h1h2 m1m2 s1s2: %c%c %c%c %c%c\n", h1, h2, m1, m2, s1, s2);
-    // printf("hhc mmc ssc: %c %c %c\n", hhh, mmm, sss);
     printf("hhi mmi ssi: %d %d %d\n", hhi, mmi, ssi);
 
     printf("hours: %d\n", hhi);
