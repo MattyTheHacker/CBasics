@@ -19,8 +19,6 @@ char get_current_time()
 }
 
 int convert_12_to_24(char *str){
-
-    printf("String inside method: %s\n", str); // debug - delete later
     
     // get hour from string
     char h1 = str[0];
@@ -52,15 +50,6 @@ int convert_12_to_24(char *str){
         return -1;
     }
 
-    // debug shit - delete later
-    printf("h1h2 m1m2 s1s2: %c%c %c%c %c%c\n", h1, h2, m1, m2, s1, s2);
-    printf("hhi mmi ssi: %d %d %d\n", hhi, mmi, ssi);
-
-    printf("hours: %d\n", hhi);
-    printf("minutes: %d\n", mmi);
-    printf("seconds: %d\n", ssi);
-    printf("isPM: %d\n", isPM);
-
     // check time format is correct (hh:mm:ssXX)
     if (hhi > 12){
         printf("Invalid time format\n");
@@ -74,6 +63,15 @@ int convert_12_to_24(char *str){
     }
 
 
+    // print initial input time
+    if (isPM) {
+        printf("12 Hour String Provided: %d:%d:%dPM\n", hhi, mmi, ssi);
+    } else {
+        printf("12 Hour String Provided: %d:%d:%dAM\n", hhi, mmi, ssi);
+    }
+    
+
+
     // convert to 24 hour format
     if (hhi < 12 && isPM){
         hhi += 12;
@@ -85,7 +83,7 @@ int convert_12_to_24(char *str){
     // convert to string
     char str_24[9] = {'\0'};
     sprintf(str_24, "%02d:%02d:%02d", hhi, mmi, ssi);
-    printf("str_24: %s\n", str_24);
+    printf("24 hour time output: %s\n", str_24);
     return 0;
 }
 
