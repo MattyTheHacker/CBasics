@@ -4,7 +4,6 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-
 char get_current_time()
 {
     time_t t, val = 1;
@@ -18,8 +17,9 @@ char get_current_time()
     return str;
 }
 
-int convert_12_to_24(char *str){
-    
+int convert_12_to_24(char *str)
+{
+
     // get hour from string
     char h1 = str[0];
     char h2 = str[1];
@@ -38,47 +38,58 @@ int convert_12_to_24(char *str){
     char sss[3] = {s1, s2, '\0'};
     int ssi = atoi(sss);
 
-
     // get AM/PM from string
     bool isPM;
-    if (str[8] == 'A') {
+    if (str[8] == 'A')
+    {
         isPM = false;
-    } else if (str[8] == 'P') {
+    }
+    else if (str[8] == 'P')
+    {
         isPM = true;
-    } else {
+    }
+    else
+    {
         printf("Invalid time format\n");
         return -1;
     }
 
     // check time format is correct (hh:mm:ssXX)
-    if (hhi > 12){
-        printf("Invalid time format\n");
-        return -1;
-    } else if (mmi > 59){
-        printf("Invalid time format\n");
-        return -1;
-    } else if (ssi > 59){
+    if (hhi > 12)
+    {
         printf("Invalid time format\n");
         return -1;
     }
-
+    else if (mmi > 59)
+    {
+        printf("Invalid time format\n");
+        return -1;
+    }
+    else if (ssi > 59)
+    {
+        printf("Invalid time format\n");
+        return -1;
+    }
 
     // print initial input time
-    if (isPM) {
+    if (isPM)
+    {
         printf("12 Hour String Provided: %d:%d:%dPM\n", hhi, mmi, ssi);
-    } else {
+    }
+    else
+    {
         printf("12 Hour String Provided: %d:%d:%dAM\n", hhi, mmi, ssi);
     }
-    
-
 
     // convert to 24 hour format
-    if (hhi < 12 && isPM){
+    if (hhi < 12 && isPM)
+    {
         hhi += 12;
-    } if (hhi == 12 && !isPM){
+    }
+    if (hhi == 12 && !isPM)
+    {
         hhi = 0;
     }
-    
 
     // convert to string
     char str_24[9] = {'\0'};
@@ -87,7 +98,8 @@ int convert_12_to_24(char *str){
     return 0;
 }
 
-int main(){
+int main()
+{
     // printf("Current time is: " + get_current_time());
     char str[10] = "09:15:55PM";
     convert_12_to_24(str);
