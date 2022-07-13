@@ -73,38 +73,24 @@ int convert_12_to_24(char *str){
         return -1;
     }
 
+
+    // convert to 24 hour format
+    if (hhi < 12 && isPM){
+        hhi += 12;
+    } if (hhi == 12 && !isPM){
+        hhi = 0;
+    }
     
 
-
-    // if (str[8] == 'A'){
-    //     if (hh == 12){
-    //         printf("00");
-    //         for (int i = 2; i <= 7; i++){
-    //             printf("%c", str[i]);
-    //         }
-    //     } else {
-    //         for (int i = 0; i <= 7; i++){
-    //             printf("%c", str[i]);
-    //         }
-    //     }
-    // } else {
-    //     if (hh == 12){
-    //         printf("12");
-    //         for (int i = 2; i <= 7; i++){
-    //             printf("%c", str[i]);
-    //         }
-    //     } else {
-    //         hh += 12;
-    //         printf("%c", hh);
-    //         for (int i = 2; i <= 7; i++){
-    //             printf("%c", str[i]);
-    //         }
-    //     }
-    // }
+    // convert to string
+    char str_24[9] = {'\0'};
+    sprintf(str_24, "%02d:%02d:%02d", hhi, mmi, ssi);
+    printf("str_24: %s\n", str_24);
+    return 0;
 }
 
 int main(){
     // printf("Current time is: " + get_current_time());
-    char str[10] = "12:05:45PM";
+    char str[10] = "09:15:55PM";
     convert_12_to_24(str);
 }
