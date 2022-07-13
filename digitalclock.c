@@ -20,25 +20,29 @@ char get_current_time()
 
 int convert_12_to_24(char *str){
 
-    printf("String inside method: %s\n", str);
+    printf("String inside method: %s\n", str); // debug - delete later
     
+    // get hour from string
     char h1 = str[0];
     char h2 = str[1];
     char hhh[3] = {h1, h2, '\0'};
     int hhi = atoi(hhh);
 
+    // get minute from string
     char m1 = str[3];
     char m2 = str[4];
     char mmm[3] = {m1, m2, '\0'};
     int mmi = atoi(mmm);
 
+    // get second from string
     char s1 = str[6];
     char s2 = str[7];
     char sss[3] = {s1, s2, '\0'};
     int ssi = atoi(sss);
 
-    bool isPM;
 
+    // get AM/PM from string
+    bool isPM;
     if (str[8] == 'A') {
         isPM = false;
     } else if (str[8] == 'P') {
@@ -48,6 +52,7 @@ int convert_12_to_24(char *str){
         return -1;
     }
 
+    // debug shit - delete later
     printf("h1h2 m1m2 s1s2: %c%c %c%c %c%c\n", h1, h2, m1, m2, s1, s2);
     printf("hhi mmi ssi: %d %d %d\n", hhi, mmi, ssi);
 
@@ -55,6 +60,20 @@ int convert_12_to_24(char *str){
     printf("minutes: %d\n", mmi);
     printf("seconds: %d\n", ssi);
     printf("isPM: %d\n", isPM);
+
+    // check time format is correct (hh:mm:ssXX)
+    if (hhi > 12){
+        printf("Invalid time format\n");
+        return -1;
+    } else if (mmi > 59){
+        printf("Invalid time format\n");
+        return -1;
+    } else if (ssi > 59){
+        printf("Invalid time format\n");
+        return -1;
+    }
+
+    
 
 
     // if (str[8] == 'A'){
